@@ -58,20 +58,20 @@ resource "aws_docdb_subnet_group" "main" {
   )
 }
 
-#resource "aws_ssm_parameter" "docdb_url_catalogue" {
-#  name  = "${var.env}.docdb.url.catalogue"
-#  type  = "String"
-#  value = "mongodb://${data.aws_ssm_parameter.user.value}:${data.aws_ssm_parameter.pass.value}@dev-docdb.cluster-cbvsbeoyxek4.us-east-1.docdb.amazonaws.com:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
-#}
-#
-#resource "aws_ssm_parameter" "docdb_url_user" {
-#  name  = "${var.env}.docdb.url.user"
-#  value = "mongodb://${data.aws_ssm_parameter.user.value}:${data.aws_ssm_parameter.pass.value}@dev-docdb.cluster-cbvsbeoyxek4.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
-#  type  = "String"
-#}
-#
-#resource "aws_ssm_parameter" "docdb_endpoint" {
-#  name  = "${var.env}.docdb.endpoint"
-#  type  = "String"
-#  value = aws_docdb_cluster.main.endpoint
-#}
+resource "aws_ssm_parameter" "docdb_url_catalogue" {
+  name  = "${var.env}.docdb.url.catalogue"
+  type  = "String"
+  value = "mongodb://${data.aws_ssm_parameter.user.value}:${data.aws_ssm_parameter.pass.value}@dev-docdb.cluster-cbvsbeoyxek4.us-east-1.docdb.amazonaws.com:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
+}
+
+resource "aws_ssm_parameter" "docdb_url_user" {
+  name  = "${var.env}.docdb.url.user"
+  value = "mongodb://${data.aws_ssm_parameter.user.value}:${data.aws_ssm_parameter.pass.value}@dev-docdb.cluster-cbvsbeoyxek4.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
+  type  = "String"
+}
+
+resource "aws_ssm_parameter" "docdb_endpoint" {
+  name  = "${var.env}.docdb.endpoint"
+  type  = "String"
+  value = aws_docdb_cluster.main.endpoint
+}
